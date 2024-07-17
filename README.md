@@ -48,10 +48,10 @@ HOW TO TEST STEP-BY-STEP:
 
 ADMIN:
 
-1. Open terminal on root folder and create superuser (This is the user that will be able to create Theatres and Seatings)
+1. Open the terminal on the root folder and create a superuser (This is the user that will be able to create Theatres and Seatings)
     ``` python manage.py createsuperuser```
    
-2. Use the login endpoint to obtain JWT token.
+2. Use the login endpoint to obtain the JWT token.
 <img width="1367" alt="Screenshot 2024-07-17 at 09 08 51" src="https://github.com/user-attachments/assets/a0d6ff9e-718f-407b-baed-e2d9bb9e5efb">
 
 3. Copy the jwt token and paste on the authorization button with Prefix "Bearer .....".
@@ -65,4 +65,25 @@ ADMIN:
 
 6. Finally admin can view reservation details.
 <img width="1346" alt="Screenshot 2024-07-17 at 09 15 04" src="https://github.com/user-attachments/assets/f62034cd-3c4e-4f85-9707-2f5904f3fb3e">
+
+NORMAL USER:
+
+1. Register User using the register endpoint.
+<img width="1408" alt="Screenshot 2024-07-17 at 11 15 33" src="https://github.com/user-attachments/assets/84827fad-7067-4959-978d-b02934ca14c1">
+
+2. Use the login endpoint to obtain JWT token just as admin.
+   
+3. View available seats for a specific theatre using the seating_id as shown
+<img width="1408" alt="Screenshot 2024-07-17 at 11 17 26" src="https://github.com/user-attachments/assets/ec868582-1ee3-43ec-a0c6-061a71650eb9">
+
+4. View available theatres for specific dates.
+<img width="1408" alt="Screenshot 2024-07-17 at 11 19 00" src="https://github.com/user-attachments/assets/4e2a710e-9422-4e23-9e07-80743fb6dec7">
+
+
+
+   
+
+
+
+
 
