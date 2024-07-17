@@ -44,6 +44,7 @@ Or run specific app tests:
     ```python manage.py test app_name```
 
 
+<<<<<<< Updated upstream
 HOW TO TEST STEP-BY-STEP:
 
 ADMIN:
@@ -74,4 +75,6 @@ ADMIN:
 
 
 
+=======
+>>>>>>> Stashed changes
 

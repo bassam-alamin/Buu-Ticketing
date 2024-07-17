@@ -66,3 +66,39 @@ class ReservationViewSetTests(TestCase):
     def test_get_reservation_details_unauthorized(self):
         response = self.client.get(reverse('list-reservations-view'), {'seating_id': f'{self.seating.id}'})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+
+class IsAdminOrReadonlyTests(TestCase):
+    def setUp(self):
+        self.client = APIClient()
+        self.admin_user = User.objects.create_user(
+            username='admin_user', password='testpassword', is_staff=True)
+        self.regular_user = User.objects.create_user(
+            username='regular_user', password='testpassword', is_staff=False)
+        self.theater_data = {
+            'name': 'Test Theater',
+            'number_of_seats': random.randint(10, 50)
+        }
+
+    def test_get_request_allowed_for_all_users(self):
+
+        self.client.force_authenticate(user=self.regular_user)
+        response = self.client.post(reverse('theatre-view'), self.theater_data)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+        self.client.force_authenticate(user=self.admin_user)
+        response = self.client.post(reverse('theatre-view'), self.theater_data)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+    def test_post_request_allowed_only_for_admin_users(self):
+        theater_data = {
+            'name': 'Test Theater',
+            'number_of_seats': random.randint(10, 50)
+        }
+
+        response = self.client.post(reverse('theatre-view'), theater_data)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+        self.client.force_authenticate(user=self.regular_user)
+        response = self.client.post(reverse('theatre-view'), theater_data)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
