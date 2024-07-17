@@ -44,7 +44,6 @@ Or run specific app tests:
     ```python manage.py test app_name```
 
 
-<<<<<<< Updated upstream
 HOW TO TEST STEP-BY-STEP:
 
 ADMIN:
@@ -66,15 +65,4 @@ ADMIN:
 
 6. Finally admin can view reservation details.
 <img width="1346" alt="Screenshot 2024-07-17 at 09 15 04" src="https://github.com/user-attachments/assets/f62034cd-3c4e-4f85-9707-2f5904f3fb3e">
-
-   
-
-
-
-
-
-
-
-=======
->>>>>>> Stashed changes
 
