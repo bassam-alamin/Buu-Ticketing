@@ -1,8 +1,13 @@
 # Ticketing-template 
 Ticketing APP
 
+VERSIONS:
+
+PYTHON 3.11
+
 Prerequisites:
 1. Make sure you have postgresql and redis installed on your machine
+
 2. Create a database that you will replace it on the .env
 
 How To Run:
@@ -10,6 +15,7 @@ How To Run:
     ``` pip install -r requirements.txt```
 
 2. Copy contents of .env.example to your .env file and replace with the respective details
+    ``` cp .env.example .env```
 
 3. Run the server locally
     ```python manage.py runserver```
